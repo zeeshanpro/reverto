@@ -291,9 +291,6 @@
                             <div class="well well-sm">
                                 <div class="form-group" style="margin-bottom:0;">
                                     <div class="input-group wide-tip">
-                                        <div class="input-group-addon" style="padding-left: 10px; padding-right: 10px;">
-                                            <i class="fa fa-2x fa-barcode addIcon"></i></a></div>
-                                        <?php echo form_input('add_item', '', 'class="form-control input-lg" id="add_item" placeholder="' . $this->lang->line('add_product_to_order') . '"'); ?>
                                         <?php if ($Owner || $Admin || $GP['products-add']) {
                                                     ?>
                                         <div class="input-group-addon" style="padding-left: 10px; padding-right: 10px;">

@@ -66,7 +66,7 @@ function row_status($x)
                 </div>
 
                 <div class="col-lg-1 col-md-2 col-xs-6">
-                    <a class="bgrey white quick-button small" href="<?= admin_url('customers/add') ?>">
+                    <a class="bgrey white quick-button small" href="<?= admin_url('customers/add') ?>" data-toggle="modal" data-target="#myModal">
                         <i class="fa fa-plus-circle"></i>
 
                         <p><?= lang('customers') ?></p>
@@ -74,7 +74,7 @@ function row_status($x)
                 </div>
 
                 <div class="col-lg-1 col-md-2 col-xs-6">
-                    <a class="bgrey white quick-button small" href="<?= admin_url('suppliers/add') ?>">
+                    <a class="bgrey white quick-button small" href="<?= admin_url('suppliers/add') ?>" data-toggle="modal" data-target="#myModal">
                         <i class="fa fa-plus-circle"></i>
 
                         <p><?= lang('suppliers') ?></p>
@@ -82,7 +82,7 @@ function row_status($x)
                 </div>
 
                 <div class="col-lg-1 col-md-2 col-xs-6">
-                    <a class="blightBlue white quick-button small" href="<?= admin_url('notifications/add') ?>">
+                    <a class="blightBlue white quick-button small" href="<?= admin_url('notifications/add') ?>" data-toggle="modal" data-target="#myModal">
                         <i class="fa fa-plus-circle"></i>
 
                         <p><?= lang('notifications') ?></p>
