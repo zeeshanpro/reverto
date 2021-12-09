@@ -305,6 +305,7 @@ $lang['completed']                        = 'Completed';
 $lang['shipping']                         = 'Shipping';
 $lang['add_product_to_order']             = 'Please add products to order list';
 $lang['order_items']                      = 'Order Items';
+$lang['add_order_item']                   = 'Add Order Item';
 $lang['net_unit_cost']                    = 'Net Unit Cost';
 $lang['net_unit_price']                   = 'Net Unit Price';
 $lang['expiry_date']                      = 'Expiry Date';

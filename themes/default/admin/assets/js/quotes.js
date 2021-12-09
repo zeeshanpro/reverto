@@ -930,8 +930,6 @@ function loadItems() {
                 '"><span class="sname" id="name_' +
                 row_no +
                 '">' +
-                item_code +
-                ' - ' +
                 item_name +
                 (sel_opt != '' ? ' (' + sel_opt + ')' : '') +
                 '</span> <i class="pull-right fa fa-edit tip pointer edit" id="' +
@@ -1045,7 +1043,7 @@ function loadItems() {
             tfoot += '<th class="text-right">' + formatMoney(product_discount) + '</th>';
         }
         if (site.settings.tax1 == 1) {
-            tfoot += '<th class="text-right">' + formatMoney(product_tax) + '</th>';
+            // tfoot += '<th class="text-right">' + formatMoney(product_tax) + '</th>';
         }
         tfoot +=
             '<th class="text-right">' +

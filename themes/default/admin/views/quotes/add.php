@@ -287,7 +287,7 @@
                         </div>
 
 
-                        <div class="col-md-12" id="sticker">
+                       <div class="col-md-12" id="sticker" style="display: none;">
                             <div class="well well-sm">
                                 <div class="form-group" style="margin-bottom:0;">
                                     <div class="input-group wide-tip">
@@ -307,8 +307,55 @@
                         <div class="clearfix"></div>
                         <div class="col-md-12">
                             <div class="control-group table-group">
-                                <label class="table-label"><?= lang('order_items'); ?> *</label>
+                                <label class="table-label"><?= lang('add_order_item'); ?> *</label>
+                                    <div class="controls table-controls">
+                                        <table
+                                           class="table items table-striped table-bordered table-condensed table-hover sortable_table">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-md-2"><?= lang('product') . ' (' . lang('name') . ')'; ?></th>
+                                                <th class="col-md-1"><?= lang('net_unit_price'); ?></th>
+                                                <th class="col-md-1"><?= lang('quantity'); ?></th>
+                                                <?php
+                                                if ($Settings->product_discount && ($Owner || $Admin || $this->session->userdata('allow_discount'))) {
+                                                    echo '<th class="col-md-1">' . $this->lang->line('discount') . '</th>';
+                                                }
+                                                ?>
+                                                <th class="col-md-4"><?= lang('add_order_item'); ?></th>
 
+                                            </tr>
+                                        </thead>
+                                           <tbody>
+                                               <tr>
+                                                    <td class="col-md-2 text-right">
+                                                        <input type="text" class="form-control input-sm" id="mname">
+                                                    </td>
+                                                    <td class="col-md-1 text-right">
+                                                        <input type="text" class="form-control input-sm" id="mprice">
+                                                    </td>
+                                                    <td class="col-md-1 text-right">
+                                                        <input type="text" class="form-control input-sm" id="mquantity">
+                                                    </td>
+                                                    <td class="col-md-1 text-right">
+                                                        <input type="text" class="form-control input-sm" id="mdiscount">
+                                                    </td>
+                                                    <td class="col-md-2 text-right" style="display: none;">
+                                                        <?php if ($Settings->tax1) { ?>
+                                                            <select id="mtax" class="form-control input-tip select">
+                                                                <option value="31"> No Tax</option>
+                                                            </select>
+                                                        <?php } ?>
+                                                    </td>
+                                                    <td class="col-md-4 text-center">
+                                                        <a id="addItemManually" class="tip"
+                                               title="<?= lang('add_product_manually') ?>"><i
+                                                    class="fa fa-2x fa-plus-circle addIcon" id="addIcon"></i></a>
+                                                    </td>
+
+                                               </tr>
+                                           </tbody>
+                                        </table>
+                                <label class="table-label"><?= lang('order_items'); ?> *</label>
                                 <div class="controls table-controls">
                                     <table id="quTable"
                                            class="table items table-striped table-bordered table-condensed table-hover sortable_table">
@@ -320,11 +367,6 @@
                                             <?php
                                             if ($Settings->product_discount && ($Owner || $Admin || $this->session->userdata('allow_discount'))) {
                                                 echo '<th class="col-md-1">' . $this->lang->line('discount') . '</th>';
-                                            }
-                                            ?>
-                                            <?php
-                                            if ($Settings->tax1) {
-                                                echo '<th class="col-md-2">' . $this->lang->line('product_tax') . '</th>';
                                             }
                                             ?>
                                             <th><?= lang('subtotal'); ?> (<span
