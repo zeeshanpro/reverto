@@ -603,16 +603,17 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#addItemManually', function (e) {
+
         var mid = new Date().getTime(),
-            mcode = $('#mcode').val(),
+            mcode = $('#mcode').val() ? $('#mcode').val() : '',
             mname = $('#mname').val(),
-            mtax = parseInt($('#mtax').val()),
+            mtax = 1,
             munit = parseInt($('#munit').val()),
             mqty = parseFloat($('#mquantity').val()),
             mdiscount = $('#mdiscount').val() ? $('#mdiscount').val() : '0',
             unit_price = parseFloat($('#mprice').val()),
             mtax_rate = {};
-        if (mcode && mname && mqty && unit_price) {
+        if (mname && mqty && unit_price) {
             $.each(tax_rates, function () {
                 if (this.id == mtax) {
                     mtax_rate = this;
@@ -931,12 +932,7 @@ function loadItems() {
                 row_no +
                 '">' +
                 item_name +
-                (sel_opt != '' ? ' (' + sel_opt + ')' : '') +
-                '</span> <i class="pull-right fa fa-edit tip pointer edit" id="' +
-                row_no +
-                '" data-item="' +
-                item_id +
-                '" title="Edit" style="cursor:pointer;"></i></td>';
+                (sel_opt != '' ? ' (' + sel_opt + ')' : '');
             tr_html +=
                 '<td class="text-right"><input class="form-control input-sm text-right rprice" name="net_price[]" type="hidden" id="price_' +
                 row_no +
@@ -979,20 +975,20 @@ function loadItems() {
                     formatMoney(0 - item_discount * item_qty) +
                     '</span></td>';
             }
-            if (site.settings.tax1 == 1) {
-                tr_html +=
-                    '<td class="text-right"><input class="form-control input-sm text-right rproduct_tax" name="product_tax[]" type="hidden" id="product_tax_' +
-                    row_no +
-                    '" value="' +
-                    pr_tax.id +
-                    '"><span class="text-right sproduct_tax" id="sproduct_tax_' +
-                    row_no +
-                    '">' +
-                    (pr_tax_rate ? '(' + formatDecimal(pr_tax_rate) + ')' : '') +
-                    ' ' +
-                    formatMoney(pr_tax_val * item_qty) +
-                    '</span></td>';
-            }
+            // if (site.settings.tax1 == 1) {
+            //     tr_html +=
+            //         '<td class="text-right"><input class="form-control input-sm text-right rproduct_tax" name="product_tax[]" type="hidden" id="product_tax_' +
+            //         row_no +
+            //         '" value="' +
+            //         pr_tax.id +
+            //         '"><span class="text-right sproduct_tax" id="sproduct_tax_' +
+            //         row_no +
+            //         '">' +
+            //         (pr_tax_rate ? '(' + formatDecimal(pr_tax_rate) + ')' : '') +
+            //         ' ' +
+            //         formatMoney(pr_tax_val * item_qty) +
+            //         '</span></td>';
+            // }
             tr_html +=
                 '<td class="text-right"><span class="text-right ssubtotal" id="subtotal_' +
                 row_no +
