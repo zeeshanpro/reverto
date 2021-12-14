@@ -584,26 +584,26 @@ $(document).ready(function () {
     /* ------------------------------
      * Show manual item addition modal
      ------------------------------- */
-    $(document).on('click', '#addManually', function (e) {
-        if (count == 1) {
-            quitems = {};
-            if ($('#quwarehouse').val() && $('#qucustomer').val()) {
-                $('#qucustomer').select2('readonly', true);
-                $('#quwarehouse').select2('readonly', true);
-            } else {
-                bootbox.alert(lang.select_above);
-                item = null;
-                return false;
-            }
-        }
-        $('#mnet_price').text('0.00');
-        $('#mpro_tax').text('0.00');
-        $('#mModal').appendTo('body').modal('show');
-        return false;
-    });
+    // $(document).on('click', '#addManually', function (e) {
+    //     if (count == 1) {
+    //         quitems = {};
+    //         if ($('#quwarehouse').val() && $('#qucustomer').val()) {
+    //             $('#qucustomer').select2('readonly', true);
+    //             $('#quwarehouse').select2('readonly', true);
+    //         } else {
+    //             bootbox.alert(lang.select_above);
+    //             item = null;
+    //             return false;
+    //         }
+    //     }
+    //     $('#mnet_price').text('0.00');
+    //     $('#mpro_tax').text('0.00');
+    //     $('#mModal').appendTo('body').modal('show');
+    //     return false;
+    // });
 
     $(document).on('click', '#addItemManually', function (e) {
-
+        quitems = {};
         var mid = new Date().getTime(),
             mcode = $('#mcode').val() ? $('#mcode').val() : '',
             mname = $('#mname').val(),
@@ -613,6 +613,7 @@ $(document).ready(function () {
             mdiscount = $('#mdiscount').val() ? $('#mdiscount').val() : '0',
             unit_price = parseFloat($('#mprice').val()),
             mtax_rate = {};
+            
         if (mname && mqty && unit_price) {
             $.each(tax_rates, function () {
                 if (this.id == mtax) {

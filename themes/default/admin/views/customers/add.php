@@ -154,8 +154,10 @@
                 var optionValue = $(this).attr("value");
                 if(optionValue == 'company'){
                     $(".company").show();
+                    $("#company").val("");
                 } else{
                     $(".company").hide();
+                    $("#company").val("Individual");
                 }
             });
         }).change();
